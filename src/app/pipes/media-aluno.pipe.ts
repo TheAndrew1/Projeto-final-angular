@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Aluno } from '../models/Aluno';
 
 @Pipe({
   name: 'mediaAluno',
@@ -6,8 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class MediaAlunoPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(aluno:Aluno):number{
+    return (aluno.nota1 + aluno.nota2) / 2;
   }
-
 }

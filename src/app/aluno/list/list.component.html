@@ -15,7 +15,7 @@
             <td>{{ aluno.nome }}</td>
             <td>{{ aluno.nota1 }}</td>
             <td>{{ aluno.nota2 }}</td>
-            <td>{{ aluno | json }}</td>
+            <td>{{ aluno | mediaAluno }}</td>
             <td><button class="btn btn-primary" (click)="selecionar(aluno)"></button></td>
         </tr>
     </tbody>
