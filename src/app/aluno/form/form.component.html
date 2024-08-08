@@ -1,6 +1,32 @@
 <form [formGroup]="formulario">
+    @if(formulario.get("nome").hasError("required") && formulario.get("nome").touched){
+        <p class="alert alert-warning">O campo nome é obrigatório</p>
+    }
+    @if(formulario.get("nome").hasError("minlength") && formulario.get("nome").touched){
+        <p class="alert alert-warning">O campo nome precisa conter pelo menos 3 caracteres</p>
+    }
     <input type="text" class="form-control" placeholder="Nome" formControlName="nome">
+
+    @if(formulario.get("nota1").hasError("required") && formulario.get("nota1").touched){
+        <p class="alert alert-warning">O campo nota 1 é obrigatório</p>
+    }
+    @if(formulario.get("nota1").hasError("min") && formulario.get("nota1").touched){
+        <p class="alert alert-warning">O valor mínimo do campo nota 1 é 0</p>
+    }
+    @if(formulario.get("nota1").hasError("max") && formulario.get("nota1").touched){
+        <p class="alert alert-warning">O valor máximo do campo nota 1 é 10</p>
+    }
     <input type="number" class="form-control" placeholder="Nota 1" formControlName="nota1">
+
+    @if(formulario.get("nota2").hasError("required") && formulario.get("nota2").touched){
+        <p class="alert alert-warning">O campo nota 2 é obrigatório</p>
+    }
+    @if(formulario.get("nota2").hasError("min") && formulario.get("nota2").touched){
+        <p class="alert alert-warning">O valor mínimo do campo nota 2 é 0</p>
+    }
+    @if(formulario.get("nota2").hasError("max") && formulario.get("nota2").touched){
+        <p class="alert alert-warning">O valor máximo do campo nota 2 é 10</p>
+    }
     <input type="number" class="form-control" placeholder="Nota 2" formControlName="nota2">
     
     @if(botaoCadastrar){
