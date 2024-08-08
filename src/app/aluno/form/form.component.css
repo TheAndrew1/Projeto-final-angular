@@ -1,0 +1,12 @@
+form{
+    margin: auto 30%;
+    text-align: center;
+}
+
+input{
+    margin: 2vh auto;
+}
+
+input[type="button"]{
+    margin: 2vh 2vw;
+}
