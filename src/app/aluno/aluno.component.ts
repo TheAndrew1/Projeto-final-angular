@@ -25,4 +25,8 @@ export class AlunoComponent {
   alterar(novo:any[]){
     this.alunos[novo[0]] = novo[1];
   }
+
+  excluir(indice:number){
+    this.alunos.splice(indice, 1);
+  }
 }

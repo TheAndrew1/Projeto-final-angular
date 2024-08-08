@@ -7,6 +7,6 @@
         <input type="button" class="btn btn-primary" value="Cadastrar" [disabled]="formulario.invalid" (click)="cadastrar()">
     } @else{
         <input type="button" class="btn btn-primary" value="Alterar" [disabled]="formulario.invalid" (click)="alterar()">
-        <input type="button" class="btn btn-primary" value="Excluir">
+        <input type="button" class="btn btn-primary" value="Excluir" (click)="excluir()">
     }
 </form>

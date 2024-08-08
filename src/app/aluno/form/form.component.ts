@@ -13,7 +13,7 @@ export class FormComponent {
   @Input() selecao:any[];
   @Output() cadastro = new EventEmitter<Aluno>();
   @Output() alteracao = new EventEmitter<any[]>();
-  @Output() exclusao = new EventEmitter<Aluno>();
+  @Output() exclusao = new EventEmitter<number>();
 
   formulario = new FormGroup({
     nome: new FormControl("", [Validators.required, Validators.minLength(3)]),
@@ -42,6 +42,12 @@ export class FormComponent {
   alterar(){
     this.selecao[1] = this.formulario.value as Aluno;
     this.alteracao.emit(this.selecao);
+    this.formulario.reset();
+    this.botaoCadastrar = true;
+  }
+
+  excluir(){
+    this.exclusao.emit(this.selecao[0]);
     this.formulario.reset();
     this.botaoCadastrar = true;
   }
