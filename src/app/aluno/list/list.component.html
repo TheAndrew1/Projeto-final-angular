@@ -1,0 +1,22 @@
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Média</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let aluno of alunos, index as indice">
+            <td>{{ indice + 1 }}</td>
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.nota1 }}</td>
+            <td>{{ aluno.nota2 }}</td>
+            <td>{{ aluno | json }}</td>
+            <td><button class="btn btn-primary" (click)="selecionar(aluno)"></button></td>
+        </tr>
+    </tbody>
+</table>
