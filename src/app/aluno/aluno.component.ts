@@ -11,7 +11,12 @@ import { Aluno } from '../models/Aluno';
   styleUrl: './aluno.component.css'
 })
 export class AlunoComponent {
+  alunoSelecionado:Aluno;
   alunos:Aluno[];
+
+  selecionar(aluno:Aluno){
+    this.alunoSelecionado = aluno;
+  }
 
   cadastrar(aluno:Aluno){
     this.alunos.push(aluno);
