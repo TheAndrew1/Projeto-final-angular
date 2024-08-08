@@ -12,7 +12,7 @@ import { Aluno } from '../models/Aluno';
 })
 export class AlunoComponent {
   alunoSelecionado:Aluno;
-  alunos:Aluno[];
+  alunos:Aluno[] = [];
 
   selecionar(aluno:Aluno){
     this.alunoSelecionado = aluno;
