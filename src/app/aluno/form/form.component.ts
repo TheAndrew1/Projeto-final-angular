@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Aluno } from '../../models/Aluno';
 
@@ -10,6 +10,7 @@ import { Aluno } from '../../models/Aluno';
   styleUrl: './form.component.css'
 })
 export class FormComponent {
+  @Input() alunoSelecionado:Aluno = new Aluno();
   @Output() cadastro = new EventEmitter<Aluno>();
   @Output() alteracao = new EventEmitter<Aluno>();
   @Output() exclusao = new EventEmitter<Aluno>();
@@ -24,11 +25,6 @@ export class FormComponent {
 
   cadastrar(){
     this.cadastro.emit(this.formulario.value as Aluno);
-    this.formulario.reset();
-  }
-
-  alterar(){
-    this.alteracao.emit(this.formulario.value as Aluno);
     this.formulario.reset();
   }
 }

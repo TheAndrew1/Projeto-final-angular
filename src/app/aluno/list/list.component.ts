@@ -12,9 +12,9 @@ import { MediaAlunoPipe } from '../../pipes/media-aluno.pipe';
 })
 export class ListComponent {
   @Input() alunos:Aluno[];
-  @Output() selecao = new EventEmitter<Aluno>();
+  @Output() selecao = new EventEmitter<number>();
 
-  selecionar(aluno:Aluno){
-    this.selecao.emit(aluno);
+  selecionar(indice:number){
+    this.selecao.emit(indice);
   }
 }

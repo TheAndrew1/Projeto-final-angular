@@ -11,11 +11,11 @@ import { Aluno } from '../models/Aluno';
   styleUrl: './aluno.component.css'
 })
 export class AlunoComponent {
-  alunoSelecionado:Aluno;
   alunos:Aluno[] = [];
+  alunoSelecionado:Aluno;
 
-  selecionar(aluno:Aluno){
-    this.alunoSelecionado = aluno;
+  selecionar(indice:number){
+    this.alunoSelecionado = this.alunos[indice];
   }
 
   cadastrar(aluno:Aluno){
