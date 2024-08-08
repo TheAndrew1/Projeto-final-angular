@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Aluno } from '../../models/Aluno';
 
@@ -22,6 +22,17 @@ export class FormComponent {
   });
 
   botaoCadastrar:boolean = true;
+
+  ngOnChanges(changes: SimpleChanges){
+    if(changes["alunoSelecionado"]){
+      this.formulario.setValue({
+        nome: this.alunoSelecionado.nome,
+        nota1: this.alunoSelecionado.nota1,
+        nota2: this.alunoSelecionado.nota2
+      });
+      this.botaoCadastrar = false;
+    }
+  }
 
   cadastrar(){
     this.cadastro.emit(this.formulario.value as Aluno);
