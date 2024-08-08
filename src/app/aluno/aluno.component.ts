@@ -12,13 +12,17 @@ import { Aluno } from '../models/Aluno';
 })
 export class AlunoComponent {
   alunos:Aluno[] = [];
-  alunoSelecionado:Aluno;
+  selecao:any[];
 
   selecionar(indice:number){
-    this.alunoSelecionado = this.alunos[indice];
+    this.selecao = [indice, this.alunos[indice]];
   }
 
   cadastrar(aluno:Aluno){
     this.alunos.push(aluno);
+  }
+
+  alterar(novo:any[]){
+    this.alunos[novo[0]] = novo[1];
   }
 }

@@ -10,9 +10,9 @@ import { Aluno } from '../../models/Aluno';
   styleUrl: './form.component.css'
 })
 export class FormComponent {
-  @Input() alunoSelecionado:Aluno = new Aluno();
+  @Input() selecao:any[];
   @Output() cadastro = new EventEmitter<Aluno>();
-  @Output() alteracao = new EventEmitter<Aluno>();
+  @Output() alteracao = new EventEmitter<any[]>();
   @Output() exclusao = new EventEmitter<Aluno>();
 
   formulario = new FormGroup({
@@ -24,11 +24,11 @@ export class FormComponent {
   botaoCadastrar:boolean = true;
 
   ngOnChanges(changes: SimpleChanges){
-    if(changes["alunoSelecionado"]){
+    if(changes["selecao"]){
       this.formulario.setValue({
-        nome: this.alunoSelecionado.nome,
-        nota1: this.alunoSelecionado.nota1,
-        nota2: this.alunoSelecionado.nota2
+        nome: this.selecao[1].nome,
+        nota1: this.selecao[1].nota1,
+        nota2: this.selecao[1].nota2
       });
       this.botaoCadastrar = false;
     }
@@ -37,5 +37,12 @@ export class FormComponent {
   cadastrar(){
     this.cadastro.emit(this.formulario.value as Aluno);
     this.formulario.reset();
+  }
+
+  alterar(){
+    this.selecao[1] = this.formulario.value as Aluno;
+    this.alteracao.emit(this.selecao);
+    this.formulario.reset();
+    this.botaoCadastrar = true;
   }
 }
